@@ -1,4 +1,4 @@
--- GeraÁ„o de Modelo fÌsico
+-- Gera√ß√£o de Modelo f√≠sico
 -- Sql ANSI 2003 - brModelo.
 
 
@@ -7,14 +7,14 @@ CREATE TABLE Venda (
 IdVenda INTEGER PRIMARY KEY,
 NotaFiscal VARCHAR(10),
 Produto VARCHAR(10),
-ServiÁo VARCHAR(10),
+Servi√ßo VARCHAR(10),
 TipoDePagamento VARCHAR(10),
 Valor BIGINT(10)
 )
 
-CREATE TABLE ServiÁo (
+CREATE TABLE Servi√ßo (
 Tempo DATETIME,
-PreÁo DECIMAL(5),
+Pre√ßo DECIMAL(5),
 Id INTEGER,
 Tipo VARCHAR(50),
 Tipo1 VARCHAR(50),
@@ -39,13 +39,13 @@ Peso DECIMAL(5)
 )
 
 CREATE TABLE Animal (
-EspÈcie VARCHAR(100),
+Esp√©cie VARCHAR(100),
 Nome VARCHAR(50),
 Porte VARCHAR(10),
 Cor VARCHAR(20),
 Idade DATETIME,
-AlimentaÁ„o VARCHAR(10),
-RaÁa VARCHAR(40),
+Alimenta√ß√£o VARCHAR(10),
+Ra√ßa VARCHAR(40),
 Id INTEGER PRIMARY KEY
 )
 
@@ -54,8 +54,8 @@ Id VARCHAR(10) PRIMARY KEY,
 Cargo VARCHAR(30),
 Setor VARCHAR(30),
 Nome VARCHAR(100),
-Hor·rio VARCHAR(10),
-Cr·cha VARCHAR(10),
+Hor√°rio VARCHAR(10),
+Cr√°cha VARCHAR(10),
 Sexo CHAR(1),
 cpf VARCHAR(10),
 DataDe Nascimento VARCHAR(10)
@@ -69,7 +69,7 @@ cpf VARCHAR(10) PRIMARY KEY
 )
 
 CREATE TABLE Parceria (
-IdentificaÁ„o INTEGER PRIMARY KEY,
+Identifica√ß√£o INTEGER PRIMARY KEY,
 Nome Social VARCHAR(100),
 Nome Fantasia VARCHAR(100),
 Nome do Representante VARCHAR(10),
@@ -78,9 +78,9 @@ Contrato VARCHAR(10),
 Tipo VARCHAR(30)
 )
 
-CREATE TABLE DoenÁaPrÈExixtente (
-DoenÁaPrÈExixtente_PK INTEGER PRIMARY KEY,
-DoenÁaPrÈExixtente VARCHAR(30),
+CREATE TABLE Doen√ßaPr√©Exixtente (
+Doen√ßaPr√©Exixtente_PK INTEGER PRIMARY KEY,
+Doen√ßaPr√©Exixtente VARCHAR(30),
 Id_FK INTEGER,
 FOREIGN KEY(Id_FK) REFERENCES Animal (Id)
 )
@@ -92,14 +92,13 @@ Id_FK VARCHAR(),
 FOREIGN KEY(Id_FK) REFERENCES Funcionario (Id)
 )
 
--- Erro: Nome de tabela duplicado (este erro compromete a integridade referencial)!
 CREATE TABLE Telefone (
 Telefone_PK INTEGER PRIMARY KEY,
 Telefone VARCHAR(9)
 )
 
-CREATE TABLE EndereÁo (
-EndereÁo_PK INTEGER PRIMARY KEY,
+CREATE TABLE Endere√ßo (
+Endere√ßo_PK INTEGER PRIMARY KEY,
 Logradouro VARCHAR(150),
 Numero INTEGER,
 Complemento VARCHAR(30),
@@ -116,11 +115,11 @@ cpf_FK VARCHAR(),
 FOREIGN KEY(cpf_FK) REFERENCES Cliente (cpf)
 )
 
--- Erro: Nome de tabela duplicado (este erro compromete a integridade referencial)!
-CREATE TABLE EndereÁo (
-EndereÁo_PK INTEGER PRIMARY KEY,
+
+CREATE TABLE Endere√ßo (
+Endere√ßo_PK INTEGER PRIMARY KEY,
 Logradouro VARCHAR(100),
-N˙mero INTEGER,
+N√∫mero INTEGER,
 Complemento VARCHAR(50),
 CEP VARCHAR(8),
 Bairro VARCHAR(10),
@@ -128,18 +127,17 @@ Cidade VARCHAR(50),
 Estado VARCHAR(40)
 )
 
--- Erro: Nome de tabela duplicado (este erro compromete a integridade referencial)!
+
 CREATE TABLE Telefone (
 Telefone_PK INTEGER PRIMARY KEY,
 Telefone VARCHAR(9)
 )
 
--- Erro: Nome de tabela duplicado (este erro compromete a integridade referencial)!
 CREATE TABLE Email (
 Email_PK INTEGER PRIMARY KEY,
 Email VARCHAR(50),
-IdentificaÁ„o_FK INTEGER,
-FOREIGN KEY(IdentificaÁ„o_FK) REFERENCES Parceria (IdentificaÁ„o)
+Identifica√ß√£o_FK INTEGER,
+FOREIGN KEY(Identifica√ß√£o_FK) REFERENCES Parceria (Identifica√ß√£o)
 )
 
 CREATE TABLE Receber (
@@ -187,12 +185,12 @@ FOREIGN KEY(Id) REFERENCES Funcionario (Id)
 )
 
 CREATE TABLE Providenciar (
-IdentificaÁ„o INTEGER,
+Identifica√ß√£o INTEGER,
 IdProduto VARCHAR(5),
-PRIMARY KEY(IdentificaÁ„o,IdProduto)
+PRIMARY KEY(Identifica√ß√£o,IdProduto)
 )
 
--- Erro: Nome de tabela duplicado (este erro compromete a integridade referencial)!
+
 CREATE TABLE Adquirir (
 cpf VARCHAR(10),
 IdProduto VARCHAR(5),
@@ -205,7 +203,6 @@ IdVenda INTEGER,
 Id VARCHAR(10),
 IdProduto VARCHAR(5),
 cpf VARCHAR(10),
--- Erro: nome do campo duplicado nesta tabela!
 Id INTEGER,
 PRIMARY KEY(IdVenda,Id,IdProduto,cpf,Id)
 )
